@@ -1,24 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import NameList from "./components/NamesList";
+import Credit from "./components/Credit";
+import Search from "./components/Search";
 
-function App() {
+// pass data props from index.js
+function App({ data }) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Search />
+      {/* pass data props down to NameList component */}
+      <NameList data={data} />
+      <Credit />
     </div>
   );
 }
