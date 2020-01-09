@@ -1,7 +1,7 @@
 import React from "react";
 
 // pass data as props from App.js
-const NamesList = ({ data }) => {
+const NamesList = ({ data, filterText }) => {
   // create a variable that maps the data. .map() takes in two items i.e. each iteration from data as well as the index (but you can just have the iteration without the index if you like)
   const namesList = data.map((name, id) => {
     return (
@@ -15,7 +15,8 @@ const NamesList = ({ data }) => {
   });
 
   return (
-    <div className="App">
+    <div>
+      <p>filterText value is {filterText}</p>
       <ul>{namesList}</ul>
     </div>
   );
