@@ -27,6 +27,13 @@ function App({ data }) {
     setFavourites(favList);
   };
 
+  const removeFavourite = name => {
+    console.log(name);
+    const favList = [...favourites];
+    favList.splice(name, 1);
+    setFavourites(favList);
+  };
+
   // filterText is now updated every time via the filterUpdateText function, which gets the value from the child component i.e. Search.js
   console.log("filterText from parent component", filterText);
 
@@ -34,7 +41,11 @@ function App({ data }) {
     <div className="App">
       <Search filterText={filterText} filterUpdateText={filterUpdateText} />
       <main>
-        <Shortlist favourites={favourites} data={data} />
+        <Shortlist
+          favourites={favourites}
+          data={data}
+          removeFavourite={removeFavourite}
+        />
         {/* pass data props down to NameList component */}
         <NameList
           data={data}
