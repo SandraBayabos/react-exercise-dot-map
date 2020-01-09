@@ -8,7 +8,8 @@ export default ({ favourites, data }) => {
   // map over favourites to get EACH id
   const nameList = favourites.map(id => {
     console.log(id);
-    // a single name is the data of the id from the array
+    // a single name and the sex of the item is the data of the id from the array. Sam thing as writing data[id].name or data[id].sex
+    // NOTE the .map(id) only works because our actual [id] matches the data.id, so it works accordingly but this won't work for a todo list and the remove function because the id will be different for each item we choose to remove
     const { name, sex } = data[id];
     console.log(name);
     return (
