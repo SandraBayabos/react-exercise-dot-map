@@ -10,6 +10,9 @@ function App({ data }) {
   // create a state for text in input
   const [filterText, setFilterText] = useState("");
 
+  // create a state for favourites
+  const [favourites, setFavourites] = useState([1, 2, 3, 4]);
+
   // function that takes in a value and setFilterText to that value, then we can pass this function down via props to NameList and to Search function
   // setting the state of filterText to the value, which we get from Search.js by using a callback function to return value from Search.js back up to App.js
   const filterUpdateText = value => {
@@ -23,7 +26,7 @@ function App({ data }) {
     <div className="App">
       <Search filterText={filterText} filterUpdateText={filterUpdateText} />
       <main>
-        <Shortlist />
+        <Shortlist favourites={favourites} data={data} />
         {/* pass data props down to NameList component */}
         <NameList data={data} filterText={filterText} />
       </main>
