@@ -1,7 +1,7 @@
 import React from "react";
 
 // pass data as props from App.js
-const NamesList = ({ data, filterText }) => {
+const NamesList = ({ data, filterText, addFavourite }) => {
   // create a variable that maps the data. .map() takes in two items i.e. each iteration from data as well as the index (but you can just have the iteration without the index if you like)
   // add .filter() before .map() to remove names that don't match the current filterText
   const namesList = data
@@ -20,7 +20,7 @@ const NamesList = ({ data, filterText }) => {
         // each unique element requires a key, so in this case we give each list element a key, which is the index from the .map() function
 
         // give dynamic className to affect difference CSS
-        <li className={name.sex} key={id}>
+        <li className={name.sex} key={id} onClick={() => addFavourite(name.id)}>
           {name.name}
         </li>
       );
